@@ -1,6 +1,15 @@
 #REQ 1
 # faça os imports que julgar necessários
+import numpy as np
+import pandas as pd
+from sklearn.impute import SimpleImputer
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import LabelEncoder
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
+dataset = pd.read_csv(r'dados.csv')
 
 #REQ 2
 #essa função deve devolver a base de dados
