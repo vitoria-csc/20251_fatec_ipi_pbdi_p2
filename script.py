@@ -9,12 +9,11 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-dataset = pd.read_csv(r'dados.csv')
-
 #REQ 2
 #essa função deve devolver a base de dados
 def ler_base():
-  pass
+  base = pd.read_csv(r'dados.csv')
+  return base
 
 #REQ 3
 #essa função recebe a base lida anteriormente
