@@ -50,7 +50,9 @@ def lidar_com_valores_faltantes(features):
 #ela deve devolver as features da seguinte forma
 #Variável "Estado": Codificar com OneHotEncoding
 def codificar_categoricas(features):
-  pass
+  codificar_estado = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [3])], remainder='passthrough')
+  features = np.array(ColumnTransformer.fit_transform(features))
+  return features
 
 #REQ 6
 #essa função recebe as features e a classe
