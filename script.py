@@ -19,7 +19,9 @@ def ler_base():
 #essa função recebe a base lida anteriormente
 #ela deve devolver uma tupla contendo as features e a classe
 def dividir_em_features_e_classe(base):
-  pass
+  features = base.iloc[:, :-1].values
+  classe = base.iloc[:, -1].values
+  return features, classe
 
 #REQ 4
 #essa função recebe as features
