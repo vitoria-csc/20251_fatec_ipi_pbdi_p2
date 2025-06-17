@@ -31,7 +31,19 @@ def dividir_em_features_e_classe(base):
 #Valores faltantes da coluna "Gastos com marketing": Substituir por zero
 #Valores faltantes da coluna "Estado": Substituir pela moda
 def lidar_com_valores_faltantes(features):
-  pass
+  imputer_media = SimpleImputer(missing_values=np.nan, strategy='mean')
+  imputer_mediana = SimpleImputer(missing_values=np.nan, strategy='median')
+  imputer_moda = SimpleImputer(missing_values=np.nan,strategy='most_frequent')
+  imputer_zero = SimpleImputer(missing_values=np.nan, strategy='constant', fill_value=0)
+  imputer_media.fit(features[:,0:1])
+  features[:, 0:1] = imputer_media.transform(features[:, 0:1])
+  imputer_mediana.fit(features[:,1:2])
+  features[:, 1:2] = imputer_mediana.transform(features[:, 1:2])
+  imputer_zero.fit(features[:,2:3])
+  features[:, 2:3] = imputer_zero.transform(features[:,2:3])
+  imputer_moda.fit(features[:, 3:4])
+  features[:, 3:4] = imputer_moda.transform(features[:, 3:4])
+  return features
 
 #REQ 5
 #essa função recebe as features
