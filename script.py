@@ -51,7 +51,7 @@ def lidar_com_valores_faltantes(features):
 #Variável "Estado": Codificar com OneHotEncoding
 def codificar_categoricas(features):
   codificar_estado = ColumnTransformer(transformers=[('encoder', OneHotEncoder(), [3])], remainder='passthrough')
-  features = np.array(ColumnTransformer.fit_transform(features))
+  features = np.array(codificar_estado.fit_transform(features))
   return features
 
 #REQ 6
@@ -75,8 +75,15 @@ def normalizar(features_treinamento, features_teste):
 
 #REQ 8
 def vai():
-  #chame as suas funções aqui
-  #exiba as quatro bases aqui
-     pass
+  base = ler_base()
+  print(dividir_em_features_e_classe(base))
+  print(lidar_com_valores_faltantes)
+  print(codificar_categoricas)
+  print(obter_bases_de_treinamento_e_teste)
+  print(normalizar)
+  print(features_treinamento)
+  print(features_teste)
+  print(classe_treinamento)
+  print(classe_teste)
 
-vai()
+  vai()
